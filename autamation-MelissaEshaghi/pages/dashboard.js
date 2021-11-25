@@ -7,6 +7,14 @@ function performLogout(cy, confirmationContent) {
     cy.contains(confirmationContent)
 }
 
+function viewBills(){
+    cy.get(clientView).click();
+}
+
+function viewReservations(){
+    cy.get(reservationView).click();
+}
+
 module.export = {
     performLogout
 }

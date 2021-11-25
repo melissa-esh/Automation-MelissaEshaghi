@@ -1,18 +1,18 @@
-/// <reference types="cypress" />
+/// <reference types="cypress"/>
 
 
-import * as localhost from '../tagets/localhost'
+import * as localhost from '../targets/localhost'
 
-import * as indexFuncs from '../pages/IndexPages'
+import * as indexFuncs from '../pages/indexPages'
 import * as dashFuncs from '../pages/dashboard'
-import * as billFuncs from '../pages/BillsRoom'
-import * as clientFuncs from '../pages/ClientRoom'
+//import * as billFuncs from '../pages/billsPage'
+import * as clientFuncs from '../pages/clientPage'
 
 describe('Test Suite', function(){ 
     beforeEach(() => { 
-    cy.visit(localhost.base_url)
+    cy.visit('https://localhost:3000')
     indexFuncs.checkTitle(cy)
-    indexFuncs.validLogin(cy, localhost.username, localhost.password, 'Tester Hotel Overview')
+    indexFuncs.validLogin(cy, username, password, 'Tester Hotel Overview')
     
     })
     afterEach(() => { 
@@ -36,16 +36,12 @@ it('Delete Client', function(){
 
 })
 
-
-
 //Create Bill
 it('Create Bill', function(){
     dashFuncs.wiewBill()
     billFuncs.createBill(cy, valueBill)
 
 })
-
-
 
 //Delete Bill
 it('Delete Bill', function(){
